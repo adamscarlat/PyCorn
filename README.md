@@ -7,13 +7,10 @@ The pipeline is composed of two main stages: Training and Testing.
 In the training phase the parameters of the neural network are set. We supply as default, a trained neural network. If the user wishes, we supply instructions on how to train the network. 
 For the testing phase, the user supplies a file that contains genomic data in FASTA format of the Zea Maize. The output file will contain coordinates of possible TSS locations. 
 
-System Requirements
-
-Installation
+#Installation
 
 To install the pipeline simply clone the repository: 
-	git clone https://github.com/adamscarlat/BioinformaticsPipeline.git
-
+`git clone https://github.com/adamscarlat/BioinformaticsPipeline.git`
 
 Or download it as a zip folder
 
