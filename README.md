@@ -1,4 +1,5 @@
 # PyCorn
+<img align="right" src="https://dl.dropboxusercontent.com/u/92784443/pyCorn_small.jpeg">
 
 #Introduction
 Our pipeline is an open source tool developed for genome-wide prediction of transcription start site from maize genome data. Using a trained neural network, the pipeline takes as input sequence and outputs coordinates of possible TSS locations.
