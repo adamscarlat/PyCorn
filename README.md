@@ -23,7 +23,7 @@ Or download it as a zip folder
 ###Data preparation
 To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use **pybedtools** to generate the corresponding sequence. For negative data, we pick from the rest of neucleotides that were not labeled as predominant TSS from the corn genome. Next, in order to find the pattern around TSS, we choose a "frame" that centers at the target nucleotide and explands 500 nucleotides upstream and 499 nucleotides downstream to represent the sequence around TSS (or non-TSS in the negative data). 
 
-First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
+The cooridinates (either from the original bed file provided by Mejia-Guerra or our choice of negative data), along with the whole corn genomic equence are fed to bedtools to generate sequence in FASTA format, which serves as our main training data. 
 
 Sequences that contain more than 10 **'N'** nucleotides (bad reads) are ignored in PyCorn.
 
@@ -38,7 +38,7 @@ Sequences that contain more than 10 **'N'** nucleotides (bad reads) are ignored 
 The neural network is trained using **scikit-learn neural network**. You can find the training process in [App/driver/scikitNN.py](https://github.com/adamscarlat/PyCorn/blob/master/App/driver/scikitNN.py).
 
 ###Finding the best model
-Different combination of the amount of postive/negative data are tested to find the 
+Different combination of the amount of postive/negative data are tested to find the best neural-network model. The model is serialized and stored as a separate file [App/src/pipelineLessP.pkl](https://github.com/adamscarlat/PyCorn/blob/master/App/src/pipelineLessP.pkl) which can be replaced in the future once a better model is found.
 
 #Run Pipeline
 You can find the main script “ ” in  , use “python” to run it.
