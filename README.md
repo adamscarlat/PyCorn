@@ -19,9 +19,14 @@ To install the pipeline simply clone the repository:
 Or download it as a zip folder
 
 #Training Phase
+Construction of neural network:
 The model is pre-trained using genomic coordinates of predominant TSS taken from the article Mejia-Guerra et al., 2015. Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. The neural network is configued with 128 hidden nodes and is able to classify a sequence that contains a TSS. 
 The training process is accomplished by driver.py which you can find in folder APP/driver.
 First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
+
+Finding the best model:
+
+
 
 
 #Run Pipeline
@@ -63,4 +68,12 @@ In this directory, you can find the results of PyCorn.
 
 #Performance Evaluation
 
+	| Model	 | non-overlapped : overlapped negative data | Cool  |
+	
+	| -------|:-----------------------------------------:| -----:|
 
+	| 1      | 100: 0				     | $1600 |
+
+	| 2	 | 70 : 30		                     |   $12 |
+
+	| 3	 | 30 : 70		       |    $1 |
