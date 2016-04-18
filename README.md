@@ -8,10 +8,14 @@ In the training phase the parameters of the neural network are set. We supply as
 For the testing phase, the user supplies a file that contains genomic data in FASTA format of the Zea Maize. The output file will contain coordinates of possible TSS locations. 
 
 #Installation
-First, you need to install scikit-neuralnetwork:
-`pip install scikit-neuralnetwork`
+First, you need to install scikit-neuralnetwork: 
+
+	pip install scikit-neuralnetwork
+
 To install the pipeline simply clone the repository: 
-`git clone https://github.com/adamscarlat/BioinformaticsPipeline.git`
+
+	git clone https://github.com/adamscarlat/BioinformaticsPipeline.git
+
 Or download it as a zip folder
 
 #Training Phase
