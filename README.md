@@ -68,12 +68,22 @@ In this directory, you can find the results of PyCorn.
 
 #Performance Evaluation
 
-	| Model	 | non-overlapped : overlapped negative data | Cool  |
-	
-	| -------|:-----------------------------------------:| -----:|
+	| Model      | non-overlapped : overlapped negative data | Center align |
+	|:-----------|------------------------------------------:|:------------:|
+	| 1          |        This                               |     This     
+	| 2          |      column                               |    column    
+	| 3          |        will                               |     will     
+	| 4          |          be                               |      be      
+	| left       |       right                               |    center    
+	| aligned    |     aligned                               |   aligned
 
-	| 1      | 100: 0				     | $1600 |
 
-	| 2	 | 70 : 30		                     |   $12 |
+| Model	 | non-overlapped : overlapped negative data | Cool  |
 
-	| 3	 | 30 : 70		       |    $1 |
+| -------|:-----------------------------------------:| -----:|
+
+| 1      | 100: 0				     | $1600 |
+
+| 2	 | 70 : 30		                     |   $12 |
+
+| 3	 | 30 : 70				     |    $1 |
