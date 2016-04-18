@@ -46,7 +46,7 @@ For example:
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
 
-
+ 
 #Output File
 You can check the format of output files:
 
