@@ -74,12 +74,12 @@ In order to test the result of the pipeline we matched our results against a seq
 * jump- window slide size of the pipeline (see run pipeline).
 * ned D- number of negative examples in training phase
 * pos D- number of positive examples in training phase
-* #FP over 60,000 nts- number of false positive TSS 
-
-	| Model      |   ratio(pure/partial)  | max overlap length | jump | Neg D | Pos D |  #FP over 60,000 nts 
-	|:-----------|--------------------------------------------:|:------------:|:-----:|----------------------
-	| 1          |    Only pure negative  |       0            |  100 | 20000 | 50000 |  143    
-	| 2          |      7:3               |      900           |  100 | 30000 | 50000 |  120
-	| 3          |      3:7               |      950           |  100 | 40000 | 50000 |  94
-	| 4          |      3:7               |      950           |  100 | 50000 | 10000 |  8
+* FP over 60,000 nts- number of false positive TSS 
+	
+		| Model      |   ratio(pure/partial)  | max overlap length | jump | Neg D | Pos D |  #FP over 60,000 nts 
+		|:-----------|--------------------------------------------:|:------------:|:-----:|----------------------
+		| 1          |    Only pure negative  |       0            |  100 | 20000 | 50000 |  143    
+		| 2          |      7:3               |      900           |  100 | 30000 | 50000 |  120
+		| 3          |      3:7               |      950           |  100 | 40000 | 50000 |  94
+		| 4          |      3:7               |      950           |  100 | 50000 | 10000 |  8
 
