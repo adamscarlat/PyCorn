@@ -19,15 +19,21 @@ To install the pipeline simply clone the repository:
 Or download it as a zip folder
 
 #Training Phase
-Construction of neural network:
-The model is pre-trained using genomic coordinates of predominant TSS taken from the article Mejia-Guerra et al., 2015. Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. The neural network is configued with 128 hidden nodes and is able to classify a sequence that contains a TSS. 
+
+###Data preparation
+To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use *pybedtools* to generate the corresponding sequence. For negative data, which 
+
+###Construction of neural network
+
+Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. The neural network is configued with 128 hidden nodes and is able to classify a sequence that contains a TSS. 
 The training process is accomplished by driver.py which you can find in folder APP/driver.
 First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
 
-Finding the best model:
+###Training the neural network
+123
 
-
-
+###Finding the best model
+123
 
 #Run Pipeline
 You can find the main script “ ” in  , use “python” to run it.
@@ -46,11 +52,11 @@ For example:
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
 
- 
+
 #Output File
 You can check the format of output files:
 
-	$ cat ../output.csv
+	`$ cat ../output.csv`
 	
 In this directory, you can find the results of PyCorn.
 
@@ -68,18 +74,12 @@ In this directory, you can find the results of PyCorn.
 
 #Performance Evaluation
 
-In order to test the result of the pipeline we matched our results against a sequence of 60,000 nucleotides from the Zea Maize genome that do not contain a TSS. We tested 4 different neural network models listed as models 1-4.
-* ratio (pure/partial) signifies the ratio between negative learning examples that are completley pure (do not overlap into positive 	  areas). partial represent negative sequences that overlap into positive areas for up to 95%.
-* max overlap length- the maximum overlap of a negative sequence into a positive area.
-* jump- window slide size of the pipeline (see run pipeline).
-* ned D- number of negative examples in training phase
-* pos D- number of positive examples in training phase
-* FP over 60,000 nts- number of false positive TSS 
+	| Model	 | non-overlapped : overlapped negative data | Cool  |
 	
-		| Model      |   ratio(pure/partial)  | max overlap length | jump | Neg D | Pos D |  #FP over 60,000 nts 
-		|:-----------|--------------------------------------------:|:------------:|:-----:|----------------------
-		| 1          |    Only pure negative  |       0            |  100 | 20000 | 50000 |  143    
-		| 2          |      7:3               |      900           |  100 | 30000 | 50000 |  120
-		| 3          |      3:7               |      950           |  100 | 40000 | 50000 |  94
-		| 4          |      3:7               |      950           |  100 | 50000 | 10000 |  8
+	| -------|:-----------------------------------------:| -----:|
 
+	| 1      | 100: 0				     | $1600 |
+
+	| 2	 | 70 : 30		                     |   $12 |
+
+	| 3	 | 30 : 70		       |    $1 |
