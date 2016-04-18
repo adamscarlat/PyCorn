@@ -44,8 +44,11 @@ Accepted input sequnce is in FASTA format, which begins with a single-line descr
 
 #Output File
 You can check the format of output files:
+
 	`$ cat ../output.csv`
+	
 In this directory, you can find the results of PyCorn.
+
 	output.csv
 	This file contains the predicted position of transcription start sites.
         Column_No.	Description
@@ -53,9 +56,9 @@ In this directory, you can find the results of PyCorn.
             2		Sequence of transcription start site and its neighbors on both sides
 	For example,
 		167 	...ACGTG[C]ACGGT...
-		653	...TGCCA[G]CGTGT...
+		653		...TGCCA[G]CGTGT...
 		1355	...GATCG[A]TGCCA...
-			......
+				......
 
 
 #Performance Evaluation
