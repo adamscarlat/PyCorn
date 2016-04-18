@@ -27,11 +27,16 @@ First, it takes raw bed file as input and generate a positive dataset with coord
 #Run Pipeline
 You can find the main script “ ” in  , use “python” to run it.
 Command:
-`python pipeline inputfile outputfile windowslidesize`
+
+	python pipeline inputfileName outputfileName windowslidesize
+
 inputfile: genome sequence in FASTA format
 outputfile: position of transcription start sites and its neighbor nucleotides
 windowslidesize: the window size when you scan the genome
 
+For example:
+
+	python pipeline myGenome.fa tssLocation 100
 
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
