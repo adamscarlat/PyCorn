@@ -21,19 +21,25 @@ Or download it as a zip folder
 #Training Phase
 
 ###Data preparation
-To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use *pybedtools* to generate the corresponding sequence. For negative data, which 
+To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use **pybedtools** to generate the corresponding sequence. For negative data, we pick from the rest of neucleotides that were not labeled as predominant TSS from the corn genome. Next, in order to find the pattern around TSS, we choose a "frame" that centers at the target nucleotide and explands 500 nucleotides upstream and 499 nucleotides downstream to represent the sequence around TSS (or non-TSS in the negative data). 
 
 ###Construction of neural network
+**Input nodes:** 1000 nodes that represent the sequence of input data
 
-Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. The neural network is configued with 128 hidden nodes and is able to classify a sequence that contains a TSS. 
+**Hidden layer:** 1 hidden layer with 128 nodes
+
+**Output nodes:** 2 nodes that specifies whether the central nucleotide is TSS or not
+
+
+###Training the neural network
+The neural network is trained using **scikit-learn neural network**
+Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. 
 The training process is accomplished by driver.py which you can find in folder APP/driver.
 First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
 
-###Training the neural network
-123
 
 ###Finding the best model
-123
+Different combination of the amount of postive/negative data are tested to find the 
 
 #Run Pipeline
 You can find the main script “ ” in  , use “python” to run it.
