@@ -23,6 +23,10 @@ Or download it as a zip folder
 ###Data preparation
 To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use **pybedtools** to generate the corresponding sequence. For negative data, we pick from the rest of neucleotides that were not labeled as predominant TSS from the corn genome. Next, in order to find the pattern around TSS, we choose a "frame" that centers at the target nucleotide and explands 500 nucleotides upstream and 499 nucleotides downstream to represent the sequence around TSS (or non-TSS in the negative data). 
 
+First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
+
+Sequences that contain more than 10 **'N'** nucleotides (bad reads) are ignored in PyCorn.
+
 ###Construction of neural network
 **Input nodes:** 1000 nodes that represent the sequence of input data
 
@@ -30,13 +34,8 @@ To build a neural-network model, we used 75,681 pre-labeld genomic coordinates o
 
 **Output nodes:** 2 nodes that specifies whether the central nucleotide is TSS or not
 
-
 ###Training the neural network
-The neural network is trained using **scikit-learn neural network**
-Default parameters for training are 40,000 positive sequences and 25,000 negative sequences. 
-The training process is accomplished by driver.py which you can find in folder APP/driver.
-First, it takes raw bed file as input and generate a positive dataset with coordinates in bed format. Then use this new bed file as input to get positive dataset in FASTA format from mazie genome. In order to generate negative dataset, 
-
+The neural network is trained using **scikit-learn neural network**. You can find the training process in [App/driver/scikitNN.py](https://github.com/adamscarlat/PyCorn/blob/master/App/driver/scikitNN.py).
 
 ###Finding the best model
 Different combination of the amount of postive/negative data are tested to find the 
