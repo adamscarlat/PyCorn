@@ -64,29 +64,31 @@ class outputNN:
 	Output: a python list contains chars.
 
 	'''
-	def getSequence(self, index):
-	    i = self.firstIndex
-	    indexlist = self.expendIndex(index)
-	    padding = "..."
-	    charlist = [padding]
-	    with open(self.seqfile) as f:
-	        # linear search to locate the specific index
-	        while True:
-	            # Python: read char by char
-	            c = f.read(1)
-	            if c == '\n' : continue
-	            if not c:
-	                # End of file
-	                break
-	            if i in indexlist:
-	                if i == index:
-	                    charlist.append('[' + c + ']')
-	                else:
-	                    charlist.append(c)
-	            i += 1
-	    charlist.append(padding)
-	    return "".join(charlist)
+	def getSequence(self, row):
+		#i = self.firstIndex
+		#indexlist = self.expendIndex(index)
+		
+		padding = "..."
+		charlist = [padding]
+		tss = len(row) / 2
+		row = row[tss - 20 : tss + 20]
+		tss = len(row) / 2
+		for num in xrange(len(row)):
+			if (num == tss):
+				charlist.append('['+self.convertNum(row[num])+']')
+			else:
+				charlist.append(self.convertNum(row[num]))
 
+		charlist.append(padding)
+		return "".join(charlist)
+
+
+	def convertNum(self, num):
+		intToLetters = {1 : 'A', 2 : 'C', 3 : 'T', 0 : 'N', 4 : 'G' }
+		try:
+			return intToLetters[num]
+		except:
+			print "could not parse ", num
 
 	'''
 	compute(xTest [[]]) - function for computing
@@ -116,7 +118,9 @@ class outputNN:
 	            	lastIndex = index
 	            	continue
 
-	            self.out.write('{:10d} {:110s}'.format(index, self.getSequence(index)) + "\n")
+	            self.out.write('{:10d} {:110s}'.format(index, self.getSequence(xRaw[i])) + "\n")
+	            #convertedMatrix = self.convertSequence(index)
+	            #self.out.write('{:10d} {:110s}'.format(index, xRaw[i]) + "\n")
 	            self.TSSCount += 1
 	            lastIndex = index
 

@@ -45,7 +45,7 @@ class inputNN:
 			#print len(wholeSequence)
 			outObject.compute(matrix, windowSlideSize)
 			initial=initial + rowofMatirx
-			#print iterationCounter
+			print iterationCounter
 			iterationCounter += 1
 		outObject.out.write("===================\n")
 		outObject.out.write("Total TSS(s) found:" + str(outObject.TSSCount) + "\n")
@@ -64,20 +64,20 @@ class inputNN:
 			#if seq.count('N')>=(0.01*len(seq)):
 			#	continue
 			seq_num=[]
-
-			for n in range(len(seq)):
-				if seq[n]=='A':
-					seq_num.append(1)
-				elif seq[n]=='C':
-					seq_num.append(2)
-				elif seq[n]=='T':
-					seq_num.append(3)
-				elif seq[n]=='G':
-					seq_num.append(4)
-				elif seq[n]=='N':
-					seq_num.append(0)
-				else:
-					print "more character than ATCGN, check your seq"
+			try:
+				for n in range(len(seq)):
+					if seq[n]=='A':
+						seq_num.append(1)
+					elif seq[n]=='C':
+						seq_num.append(2)
+					elif seq[n]=='T':
+						seq_num.append(3)
+					elif seq[n]=='G':
+						seq_num.append(4)
+					else:
+						seq_num.append(0)
+			except:
+				print "more character than ATCGN, check your seq"
 
 			seq_num.append(initial + int(round(i * 1.0 *windowSlideSize/2)))
 			matrix.append(seq_num)

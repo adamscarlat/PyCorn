@@ -1,13 +1,28 @@
 from inputNN import *
 from outputNN import *
+import sys
 
 
-expandlength = 20
-seqfile = "testInput"
+# expandlength = 20
+
+# outfile = "test.txt"
+# inputFile="inputTest"
+# windowSlideSize=100
+
+
+if len(sys.argv) != 4:
+	print "Please provide correct parameters"
+	sys.exit()
+
+try:
+	inputFile=sys.argv[1]
+	outfile=sys.argv[2]
+	windowSlideSize = int(sys.argv[3])
+except:
+	print "Please provide correct parameters"
+
 modelfile = "pipelineLessP.pkl"
-outfile = "test.txt"
-inputFile="testInput"
-windowSlideSize=100
+seqfile=inputFile
 rangeSize=1000
 
 #output object with default params
