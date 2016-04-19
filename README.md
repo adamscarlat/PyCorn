@@ -55,7 +55,7 @@ inputfile: genomic sequence in FASTA format
 outputfile: position of transcription start sites and its neighbor nucleotides
 windowslidesize: the window size when you scan the genome
 
-The parameter windowslidesize defines the resolution of the search. From our testing, smaller window size gives a better resolution up to a certain point. A window size that is too small may result in an increase of false positives while a window size that is too large may result in an increase of false negatives.The recommended window slide size is between 50 - 100. 
+The parameter `windowslidesize` defines the resolution of the search. From our testing, smaller window size gives a better resolution up to a certain point. A window size that is too small may result in an increase of false positives while a window size that is too large may result in an increase of false negatives.The recommended window slide size is between 50 - 100. 
 
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
@@ -74,11 +74,11 @@ An example for a valid input file (chromosome 1 of the Zea Maize):
 #Output File
 You can check the format of output files:
 
-	`$ cat ../output.csv`
+	$ cat ../output
 	
 In this directory, you can find the results of PyCorn.
 
-	output.csv
+	output
 	This file contains the predicted position of transcription start sites.
         Column_No.	Description
             1		Coordinate of transcription start sites in genome
@@ -92,6 +92,8 @@ In this directory, you can find the results of PyCorn.
 
 
 #Performance Evaluation
+
+Performance of the network training was measured by collecting the training error of each epoch. We observed a decrease of 90% in the training error over a span of 40 epochs. The validation rate obtained for the given network was 77%.
 
 In order to test the result of the pipeline we matched our results against a sequence of 60,000 nucleotides from the Zea Maize genome that do not contain a TSS. We tested 4 different neural network models listed as models 1-4.
 * ratio (pure/partial) signifies the ratio between negative learning examples that are completley pure (do not overlap into positive 	  areas). partial represent negative sequences that overlap into positive areas for up to 95%.
