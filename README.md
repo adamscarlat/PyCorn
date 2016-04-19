@@ -42,10 +42,10 @@ The neural network is trained using **scikit-learn neural network**. You can fin
 Several combinations of the amount of postive/negative data and some other parameters are tested to find the best neural-network model. You may find more details about those parameters in the **Performance Evaluation** section. The best model is serialized and stored as a separate file [App/src/pipelineLessP.pkl](https://github.com/adamscarlat/PyCorn/blob/master/App/src/pipelineLessP.pkl) which can be replaced in the future once a better model is found.
 
 #Run Pipeline
-You can find the main script “ ” in  , use “python” to run it.
+You can find the main script `pycorn.py` in `App\src\` , use “python” to run it.
 Command:
 
-	python pipeline inputfileName outputfileName windowslidesize
+	python pycorn.py inputfileName outputfileName windowslidesize
 
 inputfile: genome sequence in FASTA format
 outputfile: position of transcription start sites and its neighbor nucleotides
@@ -53,7 +53,7 @@ windowslidesize: the window size when you scan the genome
 
 For example:
 
-	python pipeline myGenome.fa tssLocation 100
+	python pycorn.py myGenome.fa tssLocation 100
 
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
