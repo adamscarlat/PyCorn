@@ -47,16 +47,28 @@ Command:
 
 	python pycorn.py inputfileName outputfileName windowslidesize
 
-inputfile: genome sequence in FASTA format
-outputfile: position of transcription start sites and its neighbor nucleotides
-windowslidesize: the window size when you scan the genome
-
 For example:
 
 	python pycorn.py myGenome.fa tssLocation 100
 
+inputfile: genomic sequence in FASTA format
+outputfile: position of transcription start sites and its neighbor nucleotides
+windowslidesize: the window size when you scan the genome
+
+The parameter windowslidesize defines the resolution of the search. From our testing, smaller window size gives a better resolution up to a certain point. A window size that is too small may result in an increase of false positives while a window size that is too large may result in an increase of false negatives.The recommended window slide size is between 50 - 100. 
+
 #Input File
 Accepted input sequnce is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequnce data.
+
+An example for a valid input file (chromosome 1 of the Zea Maize):
+
+	>1 dna:chromosome chromosome:AGPv3:1:1:301476924:1
+	GAATTCCAAAGCCAAAGATTGCATCAGTTCTGCTGCTATTTCCTCCTATCATTCTTTCTG
+	ATGTTGAAAATGATATTAAGCCTAGGATTCGTGAATGGGAGAAGGTATTTTTGTTCATGG
+	TAGTCATTGGAACCTGCTAGATTGTACACTTGACAATAACATATATTAATATTAGTGACC
+	CCATTTTTAAATTTCCTAGGCTGGCATTGAACAAGACTATGTTAGTAGGATGTTGTTGAA
+	...
+
 
 
 #Output File
