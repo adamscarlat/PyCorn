@@ -15,7 +15,7 @@ First, you need to install scikit-neuralnetwork:
 
 To install the pipeline simply clone the repository: 
 
-	git clone https://github.com/adamscarlat/BioinformaticsPipeline.git
+	git clone https://github.com/adamscarlat/pyCorn.git
 
 Or download it as a zip folder
 
