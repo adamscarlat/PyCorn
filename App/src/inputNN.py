@@ -13,10 +13,14 @@ class inputNN:
 	#whole sequence
 	seq = ""
 
+	#total nucleotides
+	nucTotal = 0
+
 	#Constructor
 	def __init__(self, filePath):
 		self.filePath = filePath
 		self.descript, self.seq = self.getSeq(self.filePath)
+		self.nucTotal = len(self.seq)
 		pass
 
 
@@ -36,17 +40,14 @@ class inputNN:
 		initial=rangeSize / 2
 		iterationCounter = 1
 		while len(self.seq) > rangeSize:
-			rowofMatirx=min(100,(len(self.seq) - rangeSize) // windowSlideSize + 1)
-			#print rowofMatirx
-			#print rowofMatirx
-			#while len(seq)>2*rangeSize:
+			if (iterationCounter % 10 == 0):
+				print "precentage completed: ", 100 - (float(len(self.seq) ) / float(self.nucTotal)) * 100 , "%"
+
+			rowofMatirx=min(1000, (len(self.seq) - rangeSize) // windowSlideSize + 1)
 			newInit,matrix,self.seq = self.generateInputMatrix(self.seq, windowSlideSize, rangeSize, rowofMatirx, initial)
 			initial = newInit
-			#print len(wholeSequence)
-			print 'rows: ', len(matrix), 'col: ', len(matrix[0])
 			outObject.compute(matrix, windowSlideSize)
 			initial=initial + rowofMatirx
-			print iterationCounter
 			iterationCounter += 1
 		outObject.out.write("===================\n")
 		outObject.out.write("Total TSS(s) found:" + str(outObject.TSSCount) + "\n")
@@ -90,8 +91,6 @@ class inputNN:
 			if nFlag == False:
 				seq_num.append(initial + int(round(i * 1.0 *windowSlideSize/2)))
 				matrix.append(seq_num)
-			else:
-				print seq_num
 			#print initial
 		wholeSequence=wholeSequence[(rowofMatirx*windowSlideSize):]
 		newInit = initial + int(round(i * 1.0 *windowSlideSize/2) - windowSlideSize/2)

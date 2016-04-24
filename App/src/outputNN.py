@@ -119,8 +119,6 @@ class outputNN:
 	            	continue
 
 	            self.out.write('{:10d} {:110s}'.format(index, self.getSequence(xRaw[i])) + "\n")
-	            #convertedMatrix = self.convertSequence(index)
-	            #self.out.write('{:10d} {:110s}'.format(index, xRaw[i]) + "\n")
 	            self.TSSCount += 1
 	            lastIndex = index
 

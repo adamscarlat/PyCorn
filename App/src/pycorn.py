@@ -21,9 +21,9 @@ try:
 except:
 	print "Please provide correct parameters"
 
-modelfile = "pipelineH.pkl"
+modelfile = "pipelineJZ.pkl"
 seqfile=inputFile
-rangeSize=1000
+rangeSize=400
 
 #output object with default params
 outputObject = outputNN(outfile=outfile, modelfile=modelfile, seqfile=seqfile)
