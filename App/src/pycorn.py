@@ -11,7 +11,7 @@ import sys
 
 
 if len(sys.argv) != 4:
-	print "Please provide correct parameters"
+	print "Please provide correct parameters: <inputfile> <outpufile> <windowsize>"
 	sys.exit()
 
 try:
@@ -19,7 +19,7 @@ try:
 	outfile=sys.argv[2]
 	windowSlideSize = int(sys.argv[3])
 except:
-	print "Please provide correct parameters"
+	print "Please provide correct parameters: <inputfile> <outpufile> <windowsize>"
 
 modelfile = "pipelineJZ.pkl"
 seqfile=inputFile
