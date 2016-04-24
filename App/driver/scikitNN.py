@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 config=driver.createConfigDictionary('configurations.txt')
 table=driver.createTrainingTable(config)
 
-print table.shape
+print "table dimentions: ", table.shape
 
 #our table
 y = table[:,table.shape[1]-1]
@@ -31,7 +31,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 pipeline = Pipeline([
         ('min/max scaler', MinMaxScaler(feature_range=(0.0, 1.0))),
-        ('neural network',  Classifier(layers=[Layer("Tanh", units=128), 
+        ('neural network',  Classifier(layers=[Layer("Tanh", units=256), 
                                              Layer("Softmax", units=2)], n_iter=25, learning_rate=0.001, verbose=True))])
 pipeline.fit(x_train, y_train)
 
@@ -43,17 +43,23 @@ fpr=[0.0]
 positives=float(np.count_nonzero(y_test))
 negatives=float(len(y_test)-positives)
 
-tpCount=0
-fpCount=0
-truePredictions=0
+tpCount = 0
+fpCount = 0
+tnCount = 0
+fnCount = 0
+truePredictions = 0
 for res in xrange(len(y_test2)):
 	try:
 		if y_test2[res] == y_test[res]:
-			truePredictions+=1.0
+			truePredictions += 1.0
 		if y_test2[res] == 1 and y_test[res] == 1:
 			tpCount += 1.0
 		if y_test2[res] == 1 and y_test[res] == 0:
 			fpCount += 1.0
+		if y_test2[res] == 0 and y_test[res] == 1:
+			fnCount += 1.0
+		if y_test2[res] == 0 and y_test[res] == 0:
+			tnCount += 1.0
 	except:
 		print "index error ",res
 
@@ -61,8 +67,12 @@ for res in xrange(len(y_test2)):
 	fpr.append(fpCount/negatives)
 
 
-print float(truePredictions/len(y_test2))
-pickle.dump(pipeline, open('pipeline.pkl', 'wb'))
+print "validation rate: ", float(truePredictions/len(y_test2))
+print "true positives: ", tpCount
+print "false positives: ", fpCount
+print "true negatives: ", tnCount
+print "false negatives: ", fnCount
+pickle.dump(pipeline, open('pipelineH.pkl', 'wb'))
 
 
 

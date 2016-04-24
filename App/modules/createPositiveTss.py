@@ -7,6 +7,8 @@ This module creates the coordinates of the positive data set.
 '''
 
 def getPoints(filePath, rangeSize, outputFileName):
+    downstream = 50
+    upstream = rangeSize - 50
     k=rangeSize/2
     f=open (filePath, "r")
     points=[]
@@ -20,8 +22,8 @@ def getPoints(filePath, rangeSize, outputFileName):
                 #print point
                 point[1]=int(point[1])
                 point[2]=int(point[2])
-                point[1]=point[1]-k
-                point[2]=point[2]+k
+                point[1]=point[1]- upstream
+                point[2]=point[2]+ downstream
                 point[1]=str(point[1])
                 point[2]=str(point[2])
                 points.append(point)

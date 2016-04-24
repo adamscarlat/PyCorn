@@ -23,7 +23,8 @@ def mergeTable(positivefile, negativefile):
     pline = p.readline().rstrip()
 
     counter = 0
-    while pline and counter < 40000:
+    positiveCap = 75000
+    while pline and counter < positiveCap:
         if pline[0] != '>':
             pline += '1'
             tempdata.append(list(pline))
@@ -40,7 +41,8 @@ def mergeTable(positivefile, negativefile):
     nline = n.readline().rstrip()
 
     counter = 0
-    while nline:
+    negativeCap = 100000
+    while nline and counter < negativeCap:
         try:
             if nline[0] != '>':
                 nline += '0'

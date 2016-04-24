@@ -5,6 +5,7 @@ import createNegativeSet as nTss
 import mergetable as mTable
 import numpy as np
 from pybedtools import BedTool
+import CreateNegativeSetX2 as createNSbed
 
 
 '''
@@ -21,11 +22,16 @@ def getPositiveDatasetBED(config):
 	if (not os.path.isfile(config['bed_file_post'])):
 		try:
 			rangeSize=int(config['positive_dataset_range'])
+			print "range size: ", rangeSize 
 			pTss.getPoints(filePath=config['bed_file_pre'], rangeSize=rangeSize, outputFileName=config['bed_file_post'])
 		except ValueError:
 			print 'driver.getPositiveDatasetBED; Range supplied in configuration.txt must be an integer'
 		except IOError:
 			print 'driver.getPositiveDatasetBED; File ', config['bed_file_pre'], ' not found'
+
+
+def getNegativeDatasetBED(config):
+	createNSbed.activate(int(config['positive_dataset_range']))
 
 '''
 Input:
@@ -37,14 +43,13 @@ Output:
 It will create a file only if the file does not already exist
 '''
 def getNegativeDatasetFASTA(config):
-	if (not os.path.isfile(config['negative_dataset_output'])):
-		try:
-			negative_dataset_size=int(config['negative_dataset_size'])
-			sequenceLength=int(config['positive_dataset_range'])
-			nTss.createNegativeSet(setSize=negative_dataset_size, sequenceLength=sequenceLength, 
-				outputFileName=config['negative_dataset_output'])
-		except ValueError:
-			print 'driver.getNegativeDatasetFASTA; negative_dataset_size supplied in configuration.txt must be an integer'
+	try:
+		coordinates = BedTool(config['negativesBedFile'])
+		genome = BedTool(config['maize_genome_filepath'])
+		dataset = coordinates.sequence(fi=genome, fo=config['negative_dataset_output'])
+	except ValueError:
+		print 'getNegativeDatasetFASTA; File ', config['maize_genome_filepath'], ' not found'
+
 
 '''
 Input:
@@ -114,10 +119,11 @@ def createConfigDictionary(filePath):
 if __name__ == "__main__":
 	config=createConfigDictionary('configurations.txt')
 	getPositiveDatasetBED(config)
-	getNegativeDatasetFASTA(config)
+	getNegativeDatasetBED(config)
 	getPositiveDatasetFASTA(config)
+	getNegativeDatasetFASTA(config)
 	featureTable=createTrainingTable(config)
-	y=featureTable[:,featureTable.shape[1]-1]
-	A=featureTable[:,0:featureTable.shape[1]-2]
-	print A,y
+	#y=featureTable[:,featureTable.shape[1]-1]
+	#A=featureTable[:,0:featureTable.shape[1]-2]
+	#print A,y
 

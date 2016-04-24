@@ -21,7 +21,7 @@ try:
 except:
 	print "Please provide correct parameters"
 
-modelfile = "pipelineLessP.pkl"
+modelfile = "pipelineH.pkl"
 seqfile=inputFile
 rangeSize=1000
 

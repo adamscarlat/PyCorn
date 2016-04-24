@@ -43,6 +43,7 @@ class inputNN:
 			newInit,matrix,self.seq = self.generateInputMatrix(self.seq, windowSlideSize, rangeSize, rowofMatirx, initial)
 			initial = newInit
 			#print len(wholeSequence)
+			print 'rows: ', len(matrix), 'col: ', len(matrix[0])
 			outObject.compute(matrix, windowSlideSize)
 			initial=initial + rowofMatirx
 			print iterationCounter
@@ -63,9 +64,14 @@ class inputNN:
 			#print seq
 			#if seq.count('N')>=(0.01*len(seq)):
 			#	continue
+			nCounter = 0
+			nFlag = False
 			seq_num=[]
 			try:
 				for n in range(len(seq)):
+					if nCounter > 0.01*len(seq):
+						nFlag = True
+						break
 					if seq[n]=='A':
 						seq_num.append(1)
 					elif seq[n]=='C':
@@ -76,11 +82,16 @@ class inputNN:
 						seq_num.append(4)
 					else:
 						seq_num.append(0)
+					if seq[n] == 'N':
+						nCounter+=1
 			except:
 				print "more character than ATCGN, check your seq"
 
-			seq_num.append(initial + int(round(i * 1.0 *windowSlideSize/2)))
-			matrix.append(seq_num)
+			if nFlag == False:
+				seq_num.append(initial + int(round(i * 1.0 *windowSlideSize/2)))
+				matrix.append(seq_num)
+			else:
+				print seq_num
 			#print initial
 		wholeSequence=wholeSequence[(rowofMatirx*windowSlideSize):]
 		newInit = initial + int(round(i * 1.0 *windowSlideSize/2) - windowSlideSize/2)
