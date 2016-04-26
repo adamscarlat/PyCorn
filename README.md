@@ -99,7 +99,7 @@ In order to test the result of the pipeline we matched our results against a seq
 * Sequence length- length of the training example and testing sequences 
 * Negative Sequences- number of negative sequences in the negative set
 * Positive Sequences- number of positive sequences in the positive set
-* sensitivity- true positive rate 
+* sensitivity- true positive rate
 * specificity- true negative rate
 	
 		| Model      |   Sequence length      | Negative Sequences | Positive Sequences | sensitivity | specificity |
