@@ -96,12 +96,11 @@ In this directory, you can find the results of PyCorn.
 Performance of the network training was measured by collecting the training error of each epoch. We observed a decrease of 90% in the training error over a span of 40 epochs. The validation rate obtained for the given network was 77%.
 
 In order to test the result of the pipeline we matched our results against a sequence of 60,000 nucleotides from the Zea Maize genome that do not contain a TSS. We tested 4 different neural network models listed as models 1-4.
-* ratio (pure/partial) signifies the ratio between negative learning examples that are completley pure (do not overlap into positive 	  areas). partial represent negative sequences that overlap into positive areas for up to 95%.
-* max overlap length- the maximum overlap of a negative sequence into a positive area.
-* jump- window slide size of the pipeline (see run pipeline).
-* ned D- number of negative examples in training phase
-* pos D- number of positive examples in training phase
-* FP over 60,000 nts- number of false positive TSS 
+* Sequence length- length of the training example and testing sequences 
+* Negative Sequences- number of negative sequences in the negative set
+* Positive Sequences- number of positive sequences in the positive set
+* sensitivity- true positive rate 
+* specificity- true negative rate
 	
 		| Model      |   Sequence length      | Negative Sequences | Positive Sequences | sensitivity | specificity |
 		|:-----------|--------------------------------------------:|:------------------:|-------------|------------:|
