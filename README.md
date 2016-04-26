@@ -103,9 +103,10 @@ In order to test the result of the pipeline we matched our results against a seq
 * pos D- number of positive examples in training phase
 * FP over 60,000 nts- number of false positive TSS 
 	
-		| Model      |   ratio(pure/partial)  | max overlap length | jump | Neg D | Pos D |  #FP over 60,000 nts  |
-		|:-----------|--------------------------------------------:|:------------:|:-----:|----------------------:|
-		| 1          |    Only pure negative  |       0            |  100 | 20000 | 50000 |  143                  |
-		| 2          |      7:3               |      900           |  100 | 30000 | 50000 |  120                  |
-		| 3          |      3:7               |      950           |  100 | 40000 | 50000 |  94                   |
-		| 4          |      3:7               |      950           |  100 | 50000 | 10000 |  8                    |
+		| Model      |   Sequence length      | Negative Sequences | Positive Sequences | sensitivity | specificity |
+		|:-----------|--------------------------------------------:|:------------------:|-------------|------------:|
+		| 1          |      400               |     100,000        |  	75,000	        |  0.809      |   0.702     |
+		| 2          |      400               |     100,000        |    15,000          |  0.046      |   0.994     |
+		| 3          |      400               |     100,000        |    75,000          |  0.648      |   0.799     |
+		| 4          |      800               |     100,000        |    75,000          |  0.44       |   0.898     |
+		| 5          |      400               |     100,000        |    15,000          |  0.181      |   0.967     |
