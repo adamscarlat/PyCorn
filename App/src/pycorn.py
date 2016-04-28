@@ -29,7 +29,7 @@ def argError():
 	print "                         nucleotides In order words, if you want to scan every nucleotide on the sequence,"
 	print "                         please set it to 1. (But it will become very slow)"
 	print ""
-	print "Note: The suggested version for Python is Python 2."
+	print "Note: The suggested Python version is Python 2."
 
 if len(sys.argv) != 4:
 	argError()
