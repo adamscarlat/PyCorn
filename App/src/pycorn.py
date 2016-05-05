@@ -14,7 +14,7 @@ def argError():
 	print "Welcome to PyCorn!"
 	print "------------------"
 	print "Summary: "
-	print "PyCorn is a python pipeline based on scikit-learn neural network library. The ultimate goal of PyCorn is " 
+	print "PyCorn is a python pipeline based on scikit-learn neural network library. The ultimate goal of PyCorn is "
 	print "to locate potential Transcription Start Site (TSS) according to our pre-trained neural network model."
 	print ""
 
@@ -42,7 +42,7 @@ try:
 except:
 	argError()
 
-modelfile = "pipelineAS.pkl"
+modelfile = "pipelineH.pkl"	# last updated by Jingzhi on May 5 2016
 seqfile=inputFile
 rangeSize=400
 
