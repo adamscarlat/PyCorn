@@ -1,7 +1,4 @@
-import sys
 import re
-import math
-from outputNN import *
 
 class inputNN:
 
@@ -49,6 +46,7 @@ class inputNN:
 			outObject.compute(matrix, windowSlideSize)
 			initial=initial + rowofMatirx
 			iterationCounter += 1
+		print 'precentage completed: 100%. See results in output file'
 		outObject.out.write("===================\n")
 		outObject.out.write("Total TSS(s) found:" + str(outObject.TSSCount) + "\n")
 		return
@@ -59,11 +57,6 @@ class inputNN:
 
 		for i in range(0,rowofMatirx):
 			seq=wholeSequence[(i*windowSlideSize):(rangeSize+i*windowSlideSize)]
-			#print seq
-			#seq=s.split('')
-			#print seq
-			#if seq.count('N')>=(0.01*len(seq)):
-			#	continue
 			nCounter = 0
 			nFlag = False
 			seq_num=[]
@@ -90,7 +83,6 @@ class inputNN:
 			if nFlag == False:
 				seq_num.append(initial + int(round(i * 1.0 *windowSlideSize/2)))
 				matrix.append(seq_num)
-			#print initial
 		wholeSequence=wholeSequence[(rowofMatirx*windowSlideSize):]
 		newInit = initial + int(round(i * 1.0 *windowSlideSize/2) - windowSlideSize/2)
 		return newInit,matrix,wholeSequence

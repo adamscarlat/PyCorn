@@ -39,3 +39,5 @@ windowSize = int(args['windowSize'])
 
 #Start computing
 inputObject.input(windowSlideSize = windowSize, rangeSize = rangeSize, outObject = outputObject)
+
+
