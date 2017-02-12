@@ -45,7 +45,7 @@ Several combinations of the amount of postive/negative data and some other param
 You can find the main script `pycorn.py` in `App\src\` , use “python” to run it.
 Command:
 
-$ python pycorn.py  -i <input file>  -o <output file>  -w <window slide size> 
+$ python pycorn.py  -i inputFile  -o outputFile  -w windowSlideSize 
 
 For example:
 
