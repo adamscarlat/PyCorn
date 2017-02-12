@@ -1,8 +1,0 @@
-bed_file_pre=/Users/adamscarlat/Documents/CMU_year2/dataPracticum/datasets/guerra_datasetsBED/GSE70251_130507_OSU_CAGE_CTSS_dominant (2).bed
-bed_file_post=my_post_bedfile
-positive_dataset_output=my_positive_dataset_short
-positive_dataset_range=400
-negative_dataset_size=50000
-negative_dataset_output=my_negative_dataset
-maize_genome_filepath=/Users/adamscarlat/Documents/CMU_year2/dataPracticum/datasets/guerra_datasetsBED/Zea_mays.AGPv3.30.dna.toplevel.fa
-negativesBedFile=negatives.bed
