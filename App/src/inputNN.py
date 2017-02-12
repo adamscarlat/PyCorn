@@ -56,7 +56,6 @@ class inputNN:
 	def generateInputMatrix(self, wholeSequence,windowSlideSize,rangeSize,rowofMatirx,initial):
 		matrix=[]
 		seq=[]
-		s=''
 
 		for i in range(0,rowofMatirx):
 			seq=wholeSequence[(i*windowSlideSize):(rangeSize+i*windowSlideSize)]
