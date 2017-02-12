@@ -1,50 +1,41 @@
 from inputNN import *
 from outputNN import *
 import argparse
-import sys
 
-
-def argError():
-	print "Welcome to PyCorn!"
-	print "------------------"
-	print "Summary: "
-	print "PyCorn is a python pipeline based on scikit-learn neural network library. The ultimate goal of PyCorn is "
-	print "to locate potential Transcription Start Site (TSS) according to our pre-trained neural network model."
-	print ""
-
-	print "Usage: "
-	print "$ python pycorn.py <input file> <output file> <window slide size> "
-	print ""
-
-	print "Arguments: "
-	print "		input file -  The path of fasta file containing genomic sequence to be identified "
-	print "		output file - The path of output text file that will be responsible to store the TSS scanning result."
-	print "		window slide size - Default is 400. PyCorn will use pre-trained model to predict TSS by looking into"
-	print "                         nucleotides In order words, if you want to scan every nucleotide on the sequence,"
-	print "                         please set it to 1. (But it will become very slow)"
-	print ""
-	print "Note: The suggested Python version is Python 2."
-
-if len(sys.argv) != 4:
-	argError()
-	sys.exit()
-
-try:
-	inputFile=sys.argv[1]
-	outfile=sys.argv[2]
-	windowSlideSize = int(sys.argv[3])
-except:
-	argError()
-
+#globals
 modelfile = "pipelineH.pkl"	# last updated by Jingzhi on May 5 2016
-seqfile=inputFile
+defaultInput = 'testInputSmall'
+defaultOutput = 'testResult.txt'
 rangeSize=400
 
+
+def getHelpText():
+	helpFile = open('HelpMessage.txt', 'r')
+	for line in helpFile:
+		print line
+
+
+def getInputArgs():
+	parser = argparse.ArgumentParser(description=getHelpText())
+	parser.add_argument('-i','--inputFile', help='Input genomic sequence', required=False, default=defaultInput)
+	parser.add_argument('-o','--outputFile', help='Output file', required=False, default=defaultOutput)
+	parser.add_argument('-w','--windowSize', help='Window Size', required=False, default=100)
+	args = vars(parser.parse_args())
+	return args
+
+
+args = getInputArgs()
+
+seqfile=args['inputFile']
+
+
 #output object with default params
-outputObject = outputNN(outfile=outfile, modelfile=modelfile, seqfile=seqfile)
+outputObject = outputNN(outfile=args['outputFile'], modelfile=modelfile, seqfile=args['inputFile'])
 
 #start input object and read file
-inputObject = inputNN(inputFile)
+inputObject = inputNN(args['inputFile'])
+
+windowSize = int(args['windowSize'])
 
 #Start computing
-inputObject.input(windowSlideSize = windowSlideSize, rangeSize = rangeSize, outObject = outputObject)
+inputObject.input(windowSlideSize = windowSize, rangeSize = rangeSize, outObject = outputObject)

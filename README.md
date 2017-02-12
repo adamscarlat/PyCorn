@@ -45,15 +45,17 @@ Several combinations of the amount of postive/negative data and some other param
 You can find the main script `pycorn.py` in `App\src\` , use “python” to run it.
 Command:
 
-	python pycorn.py inputfileName outputfileName windowslidesize
+$ python pycorn.py  -i <input file>  -o <output file>  -w <window slide size> 
 
 For example:
 
-	python pycorn.py myGenome.fa tssLocation 100
+	python pycorn.py  -i myGenome.fa  -o tssLocation -w 100
 
 inputfile: genomic sequence in FASTA format
 outputfile: position of transcription start sites and its neighbor nucleotides
 windowslidesize: the window size when you scan the genome
+
+*note: if no parameters are supplied the testInputSmall test data will be used with a window size of 100. This test data simulates a small genomic sequence. Default result will be saved to testResult.txt
 
 The parameter `windowslidesize` defines the resolution of the search. From our testing, smaller window size gives a better resolution up to a certain point. A window size that is too small may result in an increase of false positives while a window size that is too large may result in an increase of false negatives.The recommended window slide size is between 50 - 100. 
 

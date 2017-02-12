@@ -1,0 +1,16 @@
+Welcome to PyCorn!
+------------------
+Summary:
+PyCorn is a python pipeline based on scikit-learn neural network library. The ultimate goal of PyCorn is 
+to locate potential Transcription Start Site (TSS) according to our pre-trained neural network model.
+Usage: 
+$ python pycorn.py  -i <input file>  -o <output file>  -w <window slide size> 
+
+*note: if no parameters are supplied the testInputSmall test data will be used with a window size of 100. This test data simulates a small genomic sequence. Default result will be saved to testResult.txt
+
+Arguments: 
+input file -  The path of fasta file containing genomic sequence to be identified 
+output file - The path of output text file that will be responsible to store the TSS scanning result.
+window slide size - Default is 400. PyCorn will use pre-trained model to predict TSS by looking into
+nucleotides In order words, if you want to scan every nucleotide on the sequence,
+please set it to 1. 
