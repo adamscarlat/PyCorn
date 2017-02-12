@@ -1,13 +1,7 @@
 from inputNN import *
 from outputNN import *
+import argparse
 import sys
-
-
-# expandlength = 20
-
-# outfile = "test.txt"
-# inputFile="inputTest"
-# windowSlideSize=100
 
 
 def argError():
