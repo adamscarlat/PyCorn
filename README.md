@@ -24,7 +24,7 @@ Or download it as a zip folder
 ###Data preparation
 To build a neural-network model, we used 75,681 pre-labeld genomic coordinates of predominant TSS taken from the article *Mejia-Guerra et al., 2015* as our positive data, and we use **pybedtools** to generate the corresponding sequence. For negative data, we pick from the rest of neucleotides that were not labeled as predominant TSS from the corn genome. Next, in order to find the pattern around TSS, we choose a "frame" that centers at the target nucleotide and explands 500 nucleotides upstream and 499 nucleotides downstream to represent the sequence around TSS (or non-TSS in the negative data). 
 
-The cooridinates (either from the original bed file provided by Mejia-Guerra or our choice of negative data), along with the whole corn genomic equence are fed to bedtools to generate sequence in FASTA format, which serves as our main training data. 
+The coordinates (either from the original bed file provided by Mejia-Guerra or our choice of negative data), along with the whole corn genomic equence are fed to bedtools to generate sequence in FASTA format, which serves as our main training data. 
 
 Sequences that contain more than 10 **'N'** nucleotides (bad reads) are ignored in PyCorn.
 
