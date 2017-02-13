@@ -36,7 +36,7 @@ Sequences that contain more than 10 **'N'** nucleotides (bad reads) are ignored 
 **Output nodes:** 2 nodes that specifies whether the central nucleotide is TSS or not
 
 ###Finding the best model
-Several combinations of the amount of postive/negative data and some other parameters are tested to find the best neural-network model. You may find more details about those parameters in the **Performance Evaluation** section. The best model is serialized and stored as a separate file [App/src/pipelineLessP.pkl](https://github.com/adamscarlat/PyCorn/blob/master/App/src/pipelineLessP.pkl) which can be replaced in the future once a better model is found.
+Several combinations of the amount of postive/negative data and some other parameters are tested to find the best neural-network model. You may find more details about those parameters in the **Performance Evaluation** section. The best model is serialized and stored as a separate file which can be replaced in the future once a better model is found.
 
 #Run Pipeline
 You can find the main script `pycorn.py` in `App\src\` , use “python” to run it.
