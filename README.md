@@ -97,15 +97,14 @@ For example,
 The performance of the trained model was evaluated by collecting the training error of each epoch. We observed a decrease of 90% in the training error over a span of 40 epochs. The validation rate obtained for the given network was 77%.
 
 To test the result of the pipeline we matched our results against a sequence of 60,000 nucleotides from the Zea Maize genome that does not contain a TSS. We tested four different neural network models, which are displayed below:
-```
+
 | Model      |   Sequence Length      | Negative Sequences | Positive Sequences | sensitivity | specificity |  
-|:-----------|--------------------------------------------:|:------------------:|-------------|------------:|
+|:----------:|:----------------------:|:------------------:|:------------------:|:-----------:|:-----------:|
 | 1          |      400               |     100,000        |  	75,000	        |  0.809      |   0.702     |
 | 2          |      400               |     100,000        |    15,000          |  0.046      |   0.994     |
 | 3          |      400               |     100,000        |    75,000          |  0.648      |   0.799     |
 | 4          |      800               |     100,000        |    75,000          |  0.44       |   0.898     |
 | 5          |      400               |     100,000        |    15,000          |  0.181      |   0.967     |
-```
 
 `Sequence Length` - length of the training example and testing sequences  
 `Negative Sequences` - number of negative sequences in the negative set  
