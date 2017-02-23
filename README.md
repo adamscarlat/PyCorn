@@ -60,7 +60,7 @@ $ python pycorn.py  -i myGenome.fa  -o tssLocation -w 100
 The parameter `windowslidesize` defines the resolution of the search. From our testing, a smaller window size gives a better resolution up to a certain point. A window size that is too small will result in too many false positives, while a window size that is too large will result in too many false negatives.The recommended window slide size is between 50 - 100.
 
 ## Input File
-Accepted input sequence is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequence data.
+Accepted input sequence is in FASTA format, which begins with a single-line description starting with a `>`, followed by lines of sequence data.
 
 An example for a valid input file (chromosome 1 of the Zea Maize):
 ```
