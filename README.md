@@ -55,9 +55,9 @@ Example:
 $ python pycorn.py  -i myGenome.fa  -o tssLocation -w 100
 ```
 
-> **NOTE**: If no parameters are supplied the testInputSmall test data will be used with a window size of 100. This test data simulates a small genomic sequence. Default result will be saved to testResult.txt
+> **NOTE**: If no parameters are supplied, test data from `testInputSmall` will be used with a default window size of 100. This test data simulates a small genomic sequence. The output will be saved to `testResult.txt`.
 
-The parameter `windowslidesize` defines the resolution of the search. From our testing, smaller window size gives a better resolution up to a certain point. A window size that is too small may result in an increase of false positives while a window size that is too large may result in an increase of false negatives.The recommended window slide size is between 50 - 100. 
+The parameter `windowslidesize` defines the resolution of the search. From our testing, a smaller window size gives a better resolution up to a certain point. A window size that is too small will result in too many false positives, while a window size that is too large will result in too many false negatives.The recommended window slide size is between 50 - 100.
 
 ## Input File
 Accepted input sequence is in FASTA format, which begins with a single-line description starting with “>”, followed by lines of sequence data.
