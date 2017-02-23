@@ -46,9 +46,9 @@ The command obeys the following format:
 ```sh
 $ python pycorn.py -i inputFile -o outputFile -w windowSlideSize
 ```
-`inputFile` denotes genomic sequence in FASTA format
-`outputFile` denotes the position of TSS and its neighboring nucleotides
-`windowslidesize` denotes the window size when scanning the genome
+`inputFile` denotes genomic sequence in FASTA format  
+`outputFile` denotes the position of TSS and its neighboring nucleotides  
+`windowslidesize` denotes the window size when scanning the genome  
 
 Example:
 ```sh
