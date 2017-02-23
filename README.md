@@ -6,10 +6,10 @@ Our pipeline is an open source tool developed for genome-wide prediction of tran
 
 The pipeline is composed of two main stages: Training and Testing.
 During the training phase, the parameters of the neural network are set. We supply as a default, a trained neural network. If the user wishes, we supply instructions on how to train the network.
-For the testing phase, the user supplies a file that contains genomic data from the Zea Maize genome in [FASTA format](http://zhanglab.ccmb.med.umich.edu/FASTA/). The output file will contain coordinates of possible TSS locations.
+For the testing phase, the user supplies a file that contains genomic data from the Zea Maize genome in [FASTA format](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp). The output file will contain coordinates of possible TSS locations.
 
 ## Installation
-First, install [scikit-neuralnetwork](https://github.com/aigamedev/scikit-neuralnetwork):
+First, install [scikit-neuralnetwork](https://pypi.python.org/pypi/scikit-neuralnetwork):
 ```
 pip install scikit-neuralnetwork
 ```
